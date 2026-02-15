@@ -7,18 +7,12 @@
 * во время проверки по частям ваша домашняя работа будет обозначаться статусом «На доработке»,
 * любые вопросы по решению задач задавайте в канале вашей группы.
 
-Документация: [MongoDB CRUD Operations](https://www.mongodb.com/docs/manual/crud/)
 
----
+#### Задание 1
+Чтобы в будущем вам было легче работать с **MongoDB**, изучите раздел 
+документации об использовании [**CRUD Operations**](https://docs.mongodb.com/manual/crud/).
 
-## Задание 1
-
-Чтобы в будущем вам было легче работать с **MongoDB**, изучите раздел документации об использовании [**CRUD Operations**](https://www.mongodb.com/docs/manual/crud/).
-
----
-
-## Задание 2
-
+#### Задание 2
 Структура документа коллекции **books**:
 
 ```javascript
@@ -31,9 +25,7 @@
 
 ### Запросы MongoDB
 
-Ниже приведены запросы в синтаксисе MongoDB shell (mongosh).
-
-#### Вставка данных (минимум две книги в коллекцию books)
+Вставка данных (минимум две книги в коллекцию books)
 
 ```javascript
 db.books.insertMany([
@@ -50,34 +42,17 @@ db.books.insertMany([
 ]);
 ```
 
-#### Поиск документов по полю title
+Поиск документов по полю title
 
 ```javascript
 db.books.find({ title: "Война и мир" });
 ```
 
-Поиск по части названия (регулярное выражение):
-
-```javascript
-db.books.find({ title: /Мастер/ });
-```
-
-#### Редактирование полей description и authors по _id
-
-Подставьте вместо `ObjectId("...")` реальный _id документа из вашей коллекции (например, из результата вставки или `db.books.findOne()`).
+Редактирование полей description и authors по _id
 
 ```javascript
 db.books.updateOne(
-  { _id: ObjectId("ид_документа") },
+  { _id: _id },
   { $set: { description: "Новое описание книги", authors: "Новый автор" } }
-);
-```
-
-Пример с конкретным _id (значение нужно заменить на своё):
-
-```javascript
-db.books.updateOne(
-  { _id: ObjectId("507f1f77bcf86cd799439011") },
-  { $set: { description: "Обновлённое описание", authors: "Обновлённый автор" } }
 );
 ```
